@@ -98,11 +98,11 @@
 - (void)addObstacle {
     Obstacle *obstacle = (Obstacle *)[CCBReader load:@"Obstacle"];
     CGPoint screenPosition = [self convertToWorldSpace:ccp(380, 0)];
-    CGPoint worldPosition = [CCPhysicsNode convertToNodeSpace:screenPosition];
-    obstacle.position = worldPosition;
+        //  CGPoint worldPosition = [CCPhysicsNode convertToNodeSpace:screenPosition];
+        // obstacle.position = worldPosition;
     [obstacle setupRandomPosition];
     obstacle.zOrder = DrawingOrderPipes;
-    [CCPhysicsNode addChild:obstacle];
+        // [CCPhysicsNode addChild:obstacle];
     [_obstacles addObject:obstacle];
 }
 
@@ -134,18 +134,18 @@
     // loop the ground
     for (CCNode *ground in _grounds) {
         // get the world position of the ground
-        CGPoint groundWorldPosition = [CCPhysicsNode convertToWorldSpace:ground.position];
+            //  CGPoint groundWorldPosition = [CCPhysicsNode convertToWorldSpace:ground.position];
         // get the screen position of the ground
-        CGPoint groundScreenPosition = [self convertToNodeSpace:groundWorldPosition];
+            // CGPoint groundScreenPosition = [self convertToNodeSpace:groundWorldPosition];
         
         // if the left corner is one complete width off the screen, move it to the right
-        if (groundScreenPosition.x <= (-1 * ground.contentSize.width)) {
+            //   if (groundScreenPosition.x <= (-1 * ground.contentSize.width)) {
             ground.position = ccp(ground.position.x + 2 * ground.contentSize.width, ground.position.y);
         }
     }
     
     NSMutableArray *offScreenObstacles = nil;
-    
+/*
     for (CCNode *obstacle in _obstacles) {
         CGPoint obstacleWorldPosition = [CCPhysicsNode convertToWorldSpace:obstacle.position];
         CGPoint obstacleScreenPosition = [self convertToNodeSpace:obstacleWorldPosition];
@@ -176,7 +176,7 @@
         }
     }
 }
-
+*/
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair*)pair character:(CCSprite*)character level:(CCNode*)level {
     [self gameOver];
     return TRUE;
