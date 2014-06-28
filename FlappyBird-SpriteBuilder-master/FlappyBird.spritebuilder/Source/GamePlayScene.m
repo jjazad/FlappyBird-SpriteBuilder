@@ -30,5 +30,14 @@
 }
 
 
+-(void) addObstacle {
+    
+
+}
+
+
+-(void) showScore {
+
+}
 
 @end
