@@ -29,6 +29,11 @@
     [character flap];
 }
 
+-(void) addObstacle {
 
+}
+-(void) showScore {
+    
+}
 
 @end
