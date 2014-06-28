@@ -100,9 +100,13 @@ cpBodyFree(cpBody *body)
 	}
 }
 
+
+
 #ifdef NDEBUG
 	#define	cpAssertSaneBody(body)
 #else
+
+
 	static void cpv_assert_nan(cpVect v, char *message){cpAssertHard(v.x == v.x && v.y == v.y, message);}
 	static void cpv_assert_infinite(cpVect v, char *message){cpAssertHard(cpfabs(v.x) != INFINITY && cpfabs(v.y) != INFINITY, message);}
 	static void cpv_assert_sane(cpVect v, char *message){cpv_assert_nan(v, message); cpv_assert_infinite(v, message);}
@@ -120,12 +124,17 @@ cpBodyFree(cpBody *body)
 		cpv_assert_sane(body->f, "Body's force is invalid.");
 
 		cpAssertHard(body->a == body->a && cpfabs(body->a) != INFINITY, "Body's angle is invalid.");
-            //cpAssertHard(body->w == body->w && cpfabs(body->w) != INFINITY, "Body's angular velocity is invalid.");
+        cpAssertHard(body->w == body->w && cpfabs(body->w) != INFINITY, "Body's angular velocity is invalid.");
 		cpAssertHard(body->t == body->t && cpfabs(body->t) != INFINITY, "Body's torque is invalid.");
 	}
 	
+
+
 	#define	cpAssertSaneBody(body) cpBodySanityCheck(body)
 #endif
+
+
+
 
 cpBool
 cpBodyIsSleeping(const cpBody *body)
