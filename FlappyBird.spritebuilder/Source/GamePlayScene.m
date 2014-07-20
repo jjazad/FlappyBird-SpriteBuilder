@@ -77,7 +77,22 @@
 
         // This method will be called everytime a player touches the screen.
 
-    [character flap];
+    if (!_gameOver) {
+        [character.physicsBody applyAngularImpulse:10000.f];
+        _sinceTouch = 0.f;
+
+        @try
+        {
+            [super touchBegan:touch withEvent:event];
+        }
+        @catch(NSException* ex)
+        {
+
+        }
+    }
+
+
+        //  [character flap];
 }
 
 -(void) addObstacle {
