@@ -97,6 +97,15 @@
 
 -(void) addObstacle {
 
+    Obstacle *obstacle = (Obstacle *)[CCBReader load:@"Obstacle"];
+    CGPoint screenPosition = [self convertToWorldSpace:ccp(380, 0)];
+        // CGPoint worldPosition = [CCPhysicsNode convertToNodeSpace:screenPosition];
+    obstacle.position = worldPosition;
+    [obstacle setupRandomPosition];
+    obstacle.zOrder = DrawingOrderPipes;
+        //  [CCPhysicsNode addChild:obstacle];
+    [_obstacles addObject:obstacle];
+
 }
 -(void) showScore {
     
