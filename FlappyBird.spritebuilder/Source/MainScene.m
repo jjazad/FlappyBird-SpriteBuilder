@@ -104,7 +104,7 @@ Obstacle *obstacle;
         // obstacle.position = worldPosition;
     [obstacle setupRandomPosition];
     obstacle.zOrder = DrawingOrderPipes;
-        [CCPhysicsNode addChild:obstacle];
+        //  [CCPhysicsNode addChild:obstacle];
     [_obstacles addObject:obstacle];
 }
 
