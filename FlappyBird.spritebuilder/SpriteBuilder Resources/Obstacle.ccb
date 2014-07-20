@@ -494,7 +494,7 @@
 			</dict>
 		</array>
 		<key>customClass</key>
-		<string>Obstacle</string>
+		<string>GamePlayScene</string>
 		<key>displayName</key>
 		<string>CCNode</string>
 		<key>memberVarAssignmentName</key>
@@ -563,6 +563,8 @@
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
