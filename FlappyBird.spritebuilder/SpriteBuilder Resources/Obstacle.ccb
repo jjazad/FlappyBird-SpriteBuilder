@@ -494,7 +494,7 @@
 			</dict>
 		</array>
 		<key>customClass</key>
-		<string>GamePlayScene</string>
+		<string>Obstacle</string>
 		<key>displayName</key>
 		<string>CCNode</string>
 		<key>memberVarAssignmentName</key>
