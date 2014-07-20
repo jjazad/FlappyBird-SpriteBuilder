@@ -9,6 +9,8 @@
 #import "MainScene.h"
 #import "Obstacle.h"
 
+Obstacle *obstacle;
+
 @implementation MainScene {
     CCNode *_ground1;
     CCNode *_ground2;
@@ -99,7 +101,7 @@
     Obstacle *obstacle = (Obstacle *)[CCBReader load:@"Obstacle"];
     CGPoint screenPosition = [self convertToWorldSpace:ccp(380, 0)];
         // CGPoint worldPosition = [CCPhysicsNode convertToNodeSpace:screenPosition];
-         obstacle.position = worldPosition;
+        // obstacle.position = worldPosition;
     [obstacle setupRandomPosition];
     obstacle.zOrder = DrawingOrderPipes;
         [CCPhysicsNode addChild:obstacle];
