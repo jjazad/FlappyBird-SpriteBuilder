@@ -45,14 +45,14 @@ Obstacle *obstacle;
         ground.zOrder = DrawingOrderGround;
     }
 
-    /*
+
     // set this class as delegate
     physicisNode.collisionDelegate = self;
     
     _obstacles = [NSMutableArray array];
     points = 0;
     _scoreLabel.visible = true;
-    */
+
     [super initialize];
 }
 
@@ -102,24 +102,26 @@ Obstacle *obstacle;
 
 
 
-/*
+
 #pragma mark - Obstacle Spawning
 
 - (void)addObstacle {
     Obstacle *obstacle = (Obstacle *)[CCBReader load:@"Obstacle"];
     CGPoint screenPosition = [self convertToWorldSpace:ccp(380, 0)];
-         CGPoint worldPosition = [CCPhysicsNode convertToNodeSpace:screenPosition];
-         obstacle.position = worldPosition;
+        // CGPoint worldPosition = [CCPhysicsNode convertToNodeSpace:screenPosition];
+        // obstacle.position = worldPosition;
     [obstacle setupRandomPosition];
     obstacle.zOrder = DrawingOrderPipes;
         //  [CCPhysicsNode addChild:obstacle];
     [_obstacles addObject:obstacle];
+
 }
+
 
 #pragma mark - Update
 
-- (void)showScore
-{
+- (void)showScore {
+
     _scoreLabel.string = [NSString stringWithFormat:@"%d", points];
     _scoreLabel.visible = true;
 }
@@ -144,27 +146,30 @@ Obstacle *obstacle;
     // loop the ground
     for (CCNode *ground in _grounds) {
         // get the world position of the ground
-              CGPoint groundWorldPosition = [CCPhysicsNode convertToWorldSpace:ground.position];
+            // CGPoint groundWorldPosition = [CCPhysicsNode convertToWorldSpace:ground.position];
         // get the screen position of the ground
-             CGPoint groundScreenPosition = [self convertToNodeSpace:groundWorldPosition];
+            // CGPoint groundScreenPosition = [self convertToNodeSpace:groundWorldPosition];
         
         // if the left corner is one complete width off the screen, move it to the right
-              if (groundScreenPosition.x <= (-1 * ground.contentSize.width)) {
+
+
+            //if (groundScreenPosition.x <= (-1 * ground.contentSize.width)) {
             ground.position = ccp(ground.position.x + 2 * ground.contentSize.width, ground.position.y);
-        }
+            //}
     }
     
     NSMutableArray *offScreenObstacles = nil;
 
     for (CCNode *obstacle in _obstacles) {
-        CGPoint obstacleWorldPosition = [CCPhysicsNode convertToWorldSpace:obstacle.position];
-        CGPoint obstacleScreenPosition = [self convertToNodeSpace:obstacleWorldPosition];
-        if (obstacleScreenPosition.x < -obstacle.contentSize.width) {
+            // CGPoint obstacleWorldPosition = [CCPhysicsNode convertToWorldSpace:obstacle.position];
+            // CGPoint obstacleScreenPosition = [self convertToNodeSpace:obstacleWorldPosition];
+      /*  if (obstacleScreenPosition.x < -obstacle.contentSize.width) {
             if (!offScreenObstacles) {
                 offScreenObstacles = [NSMutableArray array];
             }
             [offScreenObstacles addObject:obstacle];
         }
+       */
     }
     
     for (CCNode *obstacleToRemove in offScreenObstacles) {
@@ -199,6 +204,6 @@ Obstacle *obstacle;
     return TRUE;
 }
 
- */
+ 
 
 @end

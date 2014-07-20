@@ -12,5 +12,6 @@
 @interface MainScene : GamePlayScene
 
 -(void) gameOver;
+- (void)showScore;
 
 @end
