@@ -4,6 +4,28 @@
 
 @implementation GamePlayScene
 
+{
+
+    CCNode *_ground1;
+    CCNode *_ground2;
+    NSArray *_grounds;
+
+    NSTimeInterval _sinceTouch;
+
+    NSMutableArray *_obstacles;
+
+    CCButton *_restartButton;
+
+    BOOL _gameOver;
+    CCLabelTTF *_scoreLabel;
+    CCLabelTTF *_nameLabel;
+
+    int points;
+
+
+
+}
+
 - (void)initialize
 {
     // your code here
@@ -14,6 +36,21 @@
     [self addObstacle];
     timeSinceObstacle = 0.0f;
 }
+
+
+
+
+-(void) didloadFromCCB {
+
+        // set this class as delegate
+    physicisNode.collisionDelegate = self;
+
+    _obstacles = [NSMutableArray array];
+    points = 0;
+    _scoreLabel.visible = true;
+
+}
+
 
 -(void)update:(CCTime)delta
 {

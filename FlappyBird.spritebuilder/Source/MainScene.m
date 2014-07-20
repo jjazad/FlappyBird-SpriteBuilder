@@ -12,6 +12,8 @@
 Obstacle *obstacle;
 
 @implementation MainScene {
+
+
     CCNode *_ground1;
     CCNode *_ground2;
     NSArray *_grounds;
@@ -27,6 +29,8 @@ Obstacle *obstacle;
     CCLabelTTF *_nameLabel;
     
     int points;
+     
+
 }
 
 
@@ -40,14 +44,15 @@ Obstacle *obstacle;
         ground.physicsBody.collisionType = @"level";
         ground.zOrder = DrawingOrderGround;
     }
-    
+
+    /*
     // set this class as delegate
     physicisNode.collisionDelegate = self;
     
     _obstacles = [NSMutableArray array];
     points = 0;
     _scoreLabel.visible = true;
-    
+    */
     [super initialize];
 }
 
